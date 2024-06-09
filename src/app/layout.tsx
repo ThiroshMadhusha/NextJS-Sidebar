@@ -23,12 +23,9 @@ export default function RootLayout({
 
         {/* For Body Section */}
         <div className="flex flex-col w-full h-full ml-64 p-4 mt-6">
-        {children}
-
+          {children}
+        </div>  
         </div>
-        
-        </div>
-
         </body>
         
     </html>

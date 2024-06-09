@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { BadgeDollarSign, CircleUserRound, HelpingHand, LayoutDashboard, LogOutIcon, LucideIcon, ScanFaceIcon, Settings, WalletCards } from 'lucide-react'
+import { BadgeDollarSign, BookAIcon, CircleUserRound, HelpingHand, HomeIcon, LayoutDashboard, LogOutIcon, LucideIcon, QuoteIcon, ScanFaceIcon, Settings, WalletCards } from 'lucide-react'
 import SidebarItems from './SidebarItemsList'
 
 interface ISidebarItem {
@@ -19,9 +19,14 @@ interface ISubItems {
 // Create an Item Array
 const items: ISidebarItem[] = [
   {
+    name: "Home",
+    icon: HomeIcon,
+    path: "/",
+  },
+  {
     name: "Dashboard",
     icon: LayoutDashboard,
-    path: "/",
+    path: "/dashboard",
   },
   {
     name: "Transactions",
@@ -77,6 +82,20 @@ const items: ISidebarItem[] = [
     ]
   },
   {
+    name: "Reports",
+    icon: BookAIcon,
+    path: "/reports",
+  },
+  {
+    name: "About",
+    icon: QuoteIcon,
+    path: "/about",
+    
+  }
+];
+
+const bottomItems: ISidebarItem[] = [
+  {
     name: "Profile",
     icon: ScanFaceIcon,
     path: "/profile",
@@ -105,8 +124,8 @@ const Sidebar = () => {
     <div className='fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-10 p-4 flex flex-col'>
       <div className='flex flex-col flex-grow'>
         <div className='flex items-center mb-10'>
-          <img className='h-16' src="/logo.jpg" alt="logo" />
-          <span className='ml-6 text-3xl font-bold p-3'> PhoeniX </span>
+          <img className='h-20' src="/logo.jpg" alt="logo" />
+          <span className='ml-1 text-3xl font-bold p-3'> PhoeniX </span>
         </div>
         {/* Render the Main Items */}
         <div className='flex flex-col flex-grow space-y-1'>
@@ -114,6 +133,12 @@ const Sidebar = () => {
             <SidebarItems key={item.path} item={item} />
           ))}
         </div>
+        {/* Render the Bottom Items */}
+      <div className='flex flex-col space-y-1'>
+        {bottomItems.map((item) => (
+          <SidebarItems key={item.path} item={item} />
+        ))}
+      </div>
       </div>
     </div>
   )

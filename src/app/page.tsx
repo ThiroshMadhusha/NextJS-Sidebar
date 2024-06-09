@@ -2,9 +2,8 @@ import React from "react";
 
 const Sidebar = () => {
   return (
-    <div
-    className=" text-sidebar-active">
-      Sidebar123
+    <div>
+      Home Page
     </div>
   );
 };
